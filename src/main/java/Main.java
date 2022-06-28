@@ -24,10 +24,6 @@ class LineChartEx extends JFrame {
     public LineChartEx() {
         initUI();
     }
-    private static String ReadTitle() {
-        System.out.println("Podaj Tytuł: ");
-        return scan.nextLine();
-    }
 
     private void initUI() {
         XYDataset dataset = createDataset();
@@ -37,7 +33,6 @@ class LineChartEx extends JFrame {
         chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         chartPanel.setBackground(Color.white);
         add(chartPanel);
-
         pack();
         setTitle("Wykres");
         setLocationRelativeTo(null);
@@ -71,7 +66,6 @@ class LineChartEx extends JFrame {
 
 
     private JFreeChart createChart(XYDataset dataset) {
-        var title=ReadTitle();
         JFreeChart chart = ChartFactory.createXYLineChart(
                 "Tytul",
                 "X",
@@ -98,7 +92,7 @@ class LineChartEx extends JFrame {
         plot.setDomainGridlinePaint(Color.BLACK);
 
         chart.getLegend().setFrame(BlockBorder.NONE);
-        chart.setTitle(new TextTitle(title, new Font("Serif", java.awt.Font.BOLD, 18)));
+        chart.setTitle(new TextTitle("Wykres", new Font("Serif", java.awt.Font.BOLD, 18)));
         return chart;
     }
 
